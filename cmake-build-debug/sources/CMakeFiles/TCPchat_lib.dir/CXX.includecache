@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jonasalbuquerque/CLionProjects/TCPchat/headers/TcpPacket.h
+iostream
+-
+vector
+-
+unistd.h
+-
+memory
+-
+
+/home/jonasalbuquerque/CLionProjects/TCPchat/sources/TcpPacket.cpp
+../headers/TcpPacket.h
+/home/jonasalbuquerque/CLionProjects/TCPchat/headers/TcpPacket.h
+utility
+-
+
