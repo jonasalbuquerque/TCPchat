@@ -1,6 +1,6 @@
 #include "../headers/client.h"
 
-Client::Client()
+Client::Client() : reply_buffer(new std::vector<uint8_t> (100,0))
 {
     socketHandler_.openSocket();
     socketHandler_.bind(CLIENT_PORT);
@@ -10,13 +10,13 @@ Client::Client()
 [[noreturn]] void Client::send()
 {
     packet_ = std::make_shared<TcpPacket> ();
-    while(true)
+    while (true)
     {
+        sleep(1);
         std::string msg;
         std::cout << "Insert a message: ";
         getline(std::cin, msg);
         packet_->setPayload(msg);
-        sleep(1);
         socketHandler_.send(packet_->encode());
         Client::receive();
     }
@@ -24,8 +24,7 @@ Client::Client()
 
 void Client::receive()
 {
-    std::shared_ptr<std::vector<uint8_t>> reply_buffer = std::make_shared<std::vector<uint8_t>>(50,0);
     socketHandler_.recv(reply_buffer);
     packet_ = TcpPacket::decode(reply_buffer);
-    Utils::displayInfo(packet_, "ON CLIENT RESPONSE  ");
+    Utils::displayInfo(packet_, "ON CLIENT RESPONSE");
 }
