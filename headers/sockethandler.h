@@ -2,6 +2,7 @@
 #define TCPCHAT_SOCKETHANDLER_H
 
 #include <arpa/inet.h>
+#include <unistd.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <memory>
@@ -20,7 +21,7 @@ public:
     void bind(const uint16_t &port);
     void connect(const uint16_t &port,
                  const std::string &ip);
-    std::shared_ptr<int> accept();
+    void accept();
 
     void send(const std::shared_ptr<std::vector<uint8_t>>& buf) const;
     void recv(const std::shared_ptr<std::vector<uint8_t>>& buf) const;

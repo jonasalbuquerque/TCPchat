@@ -14,11 +14,10 @@ public:
     Server();
     void listen();
     void reply();
-    void addClient(std::shared_ptr<int> newClientSocket);
 private:
     SocketHandler socketHandler_;
     std::shared_ptr<TcpPacket> packet_;
-    std::vector<std::shared_ptr<int>> clientSockets_;
+    std::shared_ptr<std::vector<uint8_t>> request_buffer;
 };
 
 #endif //TCPCHAT_SERVER_H

@@ -19,8 +19,8 @@ std::shared_ptr<TcpPacket> TcpPacket::decode(const std::shared_ptr<std::vector<u
 {
     std::shared_ptr<TcpPacket> pckt = std::make_shared<TcpPacket>();
     std::string payload_msg;
-    for (int i = 8; i < inputPacket->size(); ++i){
-        payload_msg.push_back(inputPacket->at(i));
+    for (const uint8_t& i : *inputPacket){
+        payload_msg.push_back(i);
     }
     pckt->setPayload(payload_msg);
     return pckt;

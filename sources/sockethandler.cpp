@@ -21,16 +21,17 @@ void SocketHandler::bind(const uint16_t &port)
     }
 }
 
-std::shared_ptr<int> SocketHandler::accept()
+void SocketHandler::accept()
 {
+    ::listen(socketFd_,1);
     socklen_t addrlen = sizeof (destAddress_);
-    std::shared_ptr<int> newsockfd = std::make_shared<int>(::accept(socketFd_,
-                       (struct sockaddr *) &destAddress_, &addrlen));
-    if (newsockfd < 0)
+    int newsockfd = ::accept(socketFd_,
+                       (struct sockaddr *) &destAddress_, &addrlen);
+    if (socketFd_ < 0)
     {
         throw std::runtime_error("Accept Error");
     }
-    return newsockfd;
+    socketFd_ = newsockfd;
 }
 
 void SocketHandler::connect(const uint16_t &port, const std::string &ip)
