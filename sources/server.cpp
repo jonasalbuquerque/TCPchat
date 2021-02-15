@@ -9,6 +9,7 @@ Server::Server() : request_buffer(new std::vector<uint8_t>(100,0))
 
 void Server::listen()
 {
+    std::fill(request_buffer->begin(), request_buffer->end(), 0);
     socketHandler_.recv(request_buffer);
     packet_ = TcpPacket::decode(request_buffer);
     Utils::displayInfo(packet_, "ON SERVER REQUEST ");
@@ -17,7 +18,6 @@ void Server::listen()
 
 void Server::reply()
 {
-    sleep(1);
     packet_->setPayload("Client says: "+packet_->getPayload());
     socketHandler_.send(packet_->encode());
     Server::listen();

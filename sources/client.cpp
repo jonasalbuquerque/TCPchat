@@ -24,6 +24,8 @@ Client::Client() : reply_buffer(new std::vector<uint8_t> (100,0))
 
 void Client::receive()
 {
+    sleep(1);
+    std::fill(reply_buffer->begin(), reply_buffer->end(), 0);
     socketHandler_.recv(reply_buffer);
     packet_ = TcpPacket::decode(reply_buffer);
     Utils::displayInfo(packet_, "ON CLIENT RESPONSE");
