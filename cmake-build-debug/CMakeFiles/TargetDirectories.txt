@@ -1,3 +1,6 @@
 /home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/CMakeFiles/TCPchat.dir
+/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/sources/CMakeFiles/rebuild_cache.dir
+/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/sources/CMakeFiles/edit_cache.dir
+/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/sources/CMakeFiles/TCPchat_lib.dir
+/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug/sources/CMakeFiles/TCPchat_run.dir

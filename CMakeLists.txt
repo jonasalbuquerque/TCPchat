@@ -3,4 +3,6 @@ project(TCPchat)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(TCPchat main.cpp)
+include_directories(headers)
+
+add_subdirectory(sources)

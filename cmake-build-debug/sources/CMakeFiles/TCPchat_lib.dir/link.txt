@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTCPchat_lib.a  CMakeFiles/TCPchat_lib.dir/TcpPacket.cpp.o CMakeFiles/TCPchat_lib.dir/client.cpp.o CMakeFiles/TCPchat_lib.dir/main.cpp.o CMakeFiles/TCPchat_lib.dir/server.cpp.o CMakeFiles/TCPchat_lib.dir/sockethandler.cpp.o CMakeFiles/TCPchat_lib.dir/utils.cpp.o
+/usr/bin/ranlib libTCPchat_lib.a

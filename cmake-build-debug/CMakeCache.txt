@@ -232,6 +232,12 @@ TCPchat_BINARY_DIR:STATIC=/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-bui
 //Value Computed by CMake
 TCPchat_SOURCE_DIR:STATIC=/home/jonasalbuquerque/CLionProjects/TCPchat
 
+//Value Computed by CMake
+calculadoraUDP_BINARY_DIR:STATIC=/home/jonasalbuquerque/CLionProjects/TCPchat/cmake-build-debug
+
+//Value Computed by CMake
+calculadoraUDP_SOURCE_DIR:STATIC=/home/jonasalbuquerque/CLionProjects/TCPchat
+
 
 ########################
 # INTERNAL cache entries
@@ -345,7 +351,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

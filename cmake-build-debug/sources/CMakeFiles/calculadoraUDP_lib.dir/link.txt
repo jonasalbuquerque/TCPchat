@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcalculadoraUDP_lib.a  CMakeFiles/calculadoraUDP_lib.dir/UdpPacket.cpp.o CMakeFiles/calculadoraUDP_lib.dir/client.cpp.o CMakeFiles/calculadoraUDP_lib.dir/main.cpp.o CMakeFiles/calculadoraUDP_lib.dir/server.cpp.o CMakeFiles/calculadoraUDP_lib.dir/sockethandler.cpp.o CMakeFiles/calculadoraUDP_lib.dir/utils.cpp.o
+/usr/bin/ranlib libcalculadoraUDP_lib.a

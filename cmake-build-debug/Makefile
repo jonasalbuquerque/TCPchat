@@ -131,44 +131,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TCPchat
+# Target rules for targets named TCPchat_lib
 
 # Build rule for target.
-TCPchat: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TCPchat
-.PHONY : TCPchat
+TCPchat_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TCPchat_lib
+.PHONY : TCPchat_lib
 
 # fast build rule for target.
-TCPchat/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPchat.dir/build.make CMakeFiles/TCPchat.dir/build
-.PHONY : TCPchat/fast
+TCPchat_lib/fast:
+	$(MAKE) $(MAKESILENT) -f sources/CMakeFiles/TCPchat_lib.dir/build.make sources/CMakeFiles/TCPchat_lib.dir/build
+.PHONY : TCPchat_lib/fast
 
-main.o: main.cpp.o
+#=============================================================================
+# Target rules for targets named TCPchat_run
 
-.PHONY : main.o
+# Build rule for target.
+TCPchat_run: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TCPchat_run
+.PHONY : TCPchat_run
 
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPchat.dir/build.make CMakeFiles/TCPchat.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPchat.dir/build.make CMakeFiles/TCPchat.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPchat.dir/build.make CMakeFiles/TCPchat.dir/main.cpp.s
-.PHONY : main.cpp.s
+# fast build rule for target.
+TCPchat_run/fast:
+	$(MAKE) $(MAKESILENT) -f sources/CMakeFiles/TCPchat_run.dir/build.make sources/CMakeFiles/TCPchat_run.dir/build
+.PHONY : TCPchat_run/fast
 
 # Help Target
 help:
@@ -178,10 +164,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... TCPchat"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... TCPchat_lib"
+	@echo "... TCPchat_run"
 .PHONY : help
 
 
