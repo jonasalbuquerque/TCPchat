@@ -18,11 +18,11 @@ void start_server()
     }
 }
 
-void start_client()
+void start_client(uint16_t port)
 {
     try
     {
-        Client g_client;
+        Client g_client(port);
         g_client.send();
     }
     catch (const std::exception& e)
@@ -38,10 +38,12 @@ int main()
     try
     {
         std::thread th_server (start_server);
-        std::thread th_client (start_client);
+        std::thread th_client (start_client, 5001);
+        std::thread th_client2 (start_client, 5002);
 
         th_server.join();
         th_client.join();
+        th_client2.join();
 
         return 0;
     }

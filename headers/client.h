@@ -7,10 +7,11 @@
 
 class Client {
 public:
-    Client();
-    [[noreturn]] void send();
+    Client(uint16_t port);
+    void send();
     void receive();
 private:
+    uint16_t port_;
     SocketHandler socketHandler_;
     std::shared_ptr<TcpPacket> packet_;
     std::shared_ptr<std::vector<uint8_t>> reply_buffer;

@@ -21,9 +21,14 @@ void SocketHandler::bind(const uint16_t &port)
     }
 }
 
-void SocketHandler::accept()
+void SocketHandler::listen() const
 {
+    std::cout << "Listening on port: " << ntohs(srcAddress_.sin_port) << std::endl;
     ::listen(socketFd_,1);
+}
+
+void SocketHandler::accept(const std::shared_ptr<std::vector<int>>& usersList)
+{
     socklen_t addrlen = sizeof (destAddress_);
     int newsockfd = ::accept(socketFd_,
                        (struct sockaddr *) &destAddress_, &addrlen);
@@ -31,7 +36,8 @@ void SocketHandler::accept()
     {
         throw std::runtime_error("Accept Error");
     }
-    socketFd_ = newsockfd;
+    usersList->push_back(newsockfd);
+    std::cout << "New connection from port " << ntohs(destAddress_.sin_port) << std::endl;
 }
 
 void SocketHandler::connect(const uint16_t &port, const std::string &ip)
@@ -48,6 +54,17 @@ void SocketHandler::connect(const uint16_t &port, const std::string &ip)
     }
 }
 
+void SocketHandler::recvAll(const std::shared_ptr<std::vector<uint8_t>> &buf, const std::shared_ptr<std::vector<int>>& usersList) const
+{
+    for (const auto& sckt : *usersList){
+        if (::recv(sckt, buf->data(), buf->size(),0) < 0)
+        {
+//            throw std::runtime_error("RecvAll Error");
+        }
+    }
+}
+
+
 void SocketHandler::send(const std::shared_ptr<std::vector<uint8_t>>& buf) const
 {
     if (::send(socketFd_, buf->data(), buf->size(),0) < 0)
@@ -63,5 +80,7 @@ void SocketHandler::recv(const std::shared_ptr<std::vector<uint8_t>>& buf) const
         throw std::runtime_error("Receive Error");
     }
 }
+
+int SocketHandler::getSocket() { return socketFd_; }
 
 
