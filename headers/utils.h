@@ -8,7 +8,6 @@
 class Utils {
 public:
     static void displayInfo(std::shared_ptr<TcpPacket> packet, std::string extra_msg);
-    static std::string recursiveParser(std::string expressionToParse);
 };
 
 

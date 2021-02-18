@@ -9,7 +9,7 @@ Client::Client(uint16_t port) : port_(port),
     socketHandler_.connect(SERVER_PORT, "127.0.0.1");
 }
 
-[[noreturn]] void Client::send()
+void Client::send()
 {
     packet_ = std::make_shared<TcpPacket> ();
     std::string msg("User"+std::to_string(port_)+" says: ");
@@ -17,6 +17,7 @@ Client::Client(uint16_t port) : port_(port),
     getline(std::cin, msg);
     packet_->setPayload(msg);
     socketHandler_.send(packet_->encode());
+    Client::receive();
 }
 
 void Client::receive()

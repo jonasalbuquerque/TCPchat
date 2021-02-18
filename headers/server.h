@@ -13,8 +13,7 @@
 class Server {
 public:
     Server();
-
-    [[noreturn]] void listen();
+    [[noreturn]] void start();
 private:
     SocketHandler socketHandler_;
     std::shared_ptr<TcpPacket> packet_;

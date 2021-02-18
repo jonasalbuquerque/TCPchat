@@ -7,8 +7,8 @@ void start_server()
 {
     try
     {
-        Server g_server;
-        g_server.listen();
+        Server server;
+        server.start();
     }
     catch (const std::exception& e)
     {
@@ -22,8 +22,8 @@ void start_client(uint16_t port)
 {
     try
     {
-        Client g_client(port);
-        g_client.send();
+        Client client(port);
+        client.send();
     }
     catch (const std::exception& e)
     {
@@ -39,11 +39,11 @@ int main()
     {
         std::thread th_server (start_server);
         std::thread th_client (start_client, 5001);
-        std::thread th_client2 (start_client, 5002);
+//        std::thread th_client2 (start_client, 5002);
 
         th_server.join();
         th_client.join();
-        th_client2.join();
+//        th_client2.join();
 
         return 0;
     }

@@ -54,16 +54,16 @@ void SocketHandler::connect(const uint16_t &port, const std::string &ip)
     }
 }
 
-void SocketHandler::recvAll(const std::shared_ptr<std::vector<uint8_t>> &buf, const std::shared_ptr<std::vector<int>>& usersList) const
+void SocketHandler::broadcast(const std::shared_ptr<std::vector<uint8_t>>& buf, const std::shared_ptr<std::vector<int>> &usersList)
 {
-    for (const auto& sckt : *usersList){
-        if (::recv(sckt, buf->data(), buf->size(),0) < 0)
+    for (const auto& user : *usersList)
+    {
+        if (::send(user, buf->data(), buf->size(),0) < 0)
         {
-//            throw std::runtime_error("RecvAll Error");
+            throw std::runtime_error("Broadcast Error");
         }
     }
 }
-
 
 void SocketHandler::send(const std::shared_ptr<std::vector<uint8_t>>& buf) const
 {
@@ -81,6 +81,14 @@ void SocketHandler::recv(const std::shared_ptr<std::vector<uint8_t>>& buf) const
     }
 }
 
-int SocketHandler::getSocket() { return socketFd_; }
+void SocketHandler::recvfrom(const int &sckt, const std::shared_ptr<std::vector<uint8_t>> &buf)
+{
+    if (::recv(sckt, buf->data(), buf->size(),0) < 0)
+    {
+        throw std::runtime_error("ReceiveFrom Error");
+    }
+}
+
+int SocketHandler::getSocket() const { return socketFd_; }
 
 
