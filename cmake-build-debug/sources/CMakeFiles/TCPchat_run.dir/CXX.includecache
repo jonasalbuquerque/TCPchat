@@ -16,13 +16,15 @@ unistd.h
 memory
 -
 
-/home/jonasalbuquerque/CLionProjects/TCPchat/headers/client.h
+/home/jonasalbuquerque/CLionProjects/TCPchat/headers/server.h
 TcpPacket.h
 /home/jonasalbuquerque/CLionProjects/TCPchat/headers/TcpPacket.h
 sockethandler.h
 /home/jonasalbuquerque/CLionProjects/TCPchat/headers/sockethandler.h
 utils.h
 /home/jonasalbuquerque/CLionProjects/TCPchat/headers/utils.h
+algorithm
+-
 
 /home/jonasalbuquerque/CLionProjects/TCPchat/headers/sockethandler.h
 arpa/inet.h
@@ -52,7 +54,7 @@ memory
 TcpPacket.h
 /home/jonasalbuquerque/CLionProjects/TCPchat/headers/TcpPacket.h
 
-/home/jonasalbuquerque/CLionProjects/TCPchat/sources/client.cpp
-../headers/client.h
-/home/jonasalbuquerque/CLionProjects/TCPchat/headers/client.h
+/home/jonasalbuquerque/CLionProjects/TCPchat/sources/server.cpp
+../headers/server.h
+/home/jonasalbuquerque/CLionProjects/TCPchat/headers/server.h
 
